@@ -1,265 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Edad | UtiliWeb360</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-background:#f4f7fb;
-}
-
-header{
-background:linear-gradient(90deg,#0066ff,#00b894);
-padding:35px;
-color:white;
-text-align:center;
-}
-
-header h1{
-font-size:42px;
-margin-bottom:10px;
-}
-
-header p{
-font-size:20px;
-}
-
-.contenedor{
-
-max-width:700px;
-
-margin:40px auto;
-
-background:white;
-
-padding:35px;
-
-border-radius:20px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-text-align:center;
-
-}
-
-input{
-
-width:90%;
-
-padding:18px;
-
-font-size:24px;
-
-border-radius:12px;
-
-border:2px solid #ddd;
-
-outline:none;
-
-}
-
-button{
-
-margin-top:20px;
-
-padding:16px 28px;
-
-font-size:22px;
-
-border:none;
-
-border-radius:12px;
-
-cursor:pointer;
-
-transition:.3s;
-
-background:#0066ff;
-
-color:white;
-
-}
-
-button:hover{
-
-transform:scale(1.05
-             <button onclick="compartirWhatsApp()">
-
-🟢 Compartir por WhatsApp
-
-</button>
-
-<button onclick="copiarResultado()">
-
-📋 Copiar resultado
-
-</button>
-
-<button onclick="location.reload()">
-
-🔄 Calcular otra vez
-
-</button>
-
-</div>
-
-<a class="volver" href="index.html">
-
-⬅ Volver al inicio
-
-</a>
-
-</div>
-
-<script>
-
-function calcularEdad(){
-
-let fecha=document.getElementById("fecha").value;
-
-if(fecha==""){
-
-alert("Selecciona tu fecha de nacimiento.");
-
-return;
-
-}
-
-let nacimiento=new Date(fecha);
-
-let hoy=new Date();
-
-let años=hoy.getFullYear()-nacimiento.getFullYear();
-
-let meses=hoy.getMonth()-nacimiento.getMonth();
-
-let dias=hoy.getDate()-nacimiento.getDate();
-
-if(dias<0){
-
-meses--;
-
-}
-
-if(meses<0){
-
-años--;
-
-meses+=12;
-
-}
-
-let resultado=document.getElementById("resultado");
-
-let datos=document.getElementById("datos");
-
-resultado.style.display="block";
-
-datos.style.display="block";
-
-document.getElementById("acciones").style.display="block";
-
-resultado.innerHTML="🥳 ¡Tienes "+años+" años!";
-
-datos.innerHTML=
-
-"📅 Meses: <b>"+meses+"</b><br>"+
-
-"📆 Días: <b>"+Math.abs(dias)+"</b>";
-
-}
-  <button onclick="compartirWhatsApp()">
-
-🟢 Compartir por WhatsApp
-
-</button>
-
-<button onclick="copiarResultado()">
-
-📋 Copiar resultado
-
-</button>
-
-<button onclick="location.reload()">
-
-🔄 Calcular otra vez
-
-</button>
-
-</div>
-
-<a class="volver" href="index.html">
-
-⬅ Volver al inicio
-
-</a>
-
-</div>
-
-<script>
-
-function calcularEdad(){
-
-let fecha=document.getElementById("fecha").value;
-
-if(fecha==""){
-
-alert("Selecciona tu fecha de nacimiento.");
-
-return;
-
-}
-
-let nacimiento=new Date(fecha);
-
-let hoy=new Date();
-
-let años=hoy.getFullYear()-nacimiento.getFullYear();
-
-let meses=hoy.getMonth()-nacimiento.getMonth();
-
-let dias=hoy.getDate()-nacimiento.getDate();
-
-if(dias<0){
-
-meses--;
-
-}
-
-if(meses<0){
-
-años--;
-
-meses+=12;
-
-}
-
-let resultado=document.getElementById("resultado");
-
-let datos=document.getElementById("datos");
-
-resultado.style.display="block";
-
-datos.style.display="block";
-
-document.getElementById("acciones").style.display="block";
-
-resultado.innerHTML="🥳 ¡Tienes "+años+" años!";
-
-datos.innerHTML=
-
-"📅 Meses: <b>"+meses+"</b><br>"+
-
-"📆 Días: <b>"+Math.abs(dias)+"</b>";
-
-}
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Edad | UtiliWeb360</title>
+    <style>
+    body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0}
+    header{background:linear-gradient(90deg,#0066ff,#00b894);color:#fff;text-align:center;padding:30px}
+    .card{max-width:650px;margin:40px auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.12);text-align:center}
+    input,button{font-size:20px;padding:14px;border-radius:10px}
+    input{width:90%;border:2px solid #ddd}
+    button{background:#0066ff;color:#fff;border:none;cursor:pointer;margin:10px}
+    #resultado{display:none;margin-top:20px;font-size:28px;font-weight:bold;color:#0066ff}
+    #detalle{display:none;margin-top:15px;font-size:20px}
+    #acciones{display:none}
+    a{display:inline-block;margin-top:25px}
+    </style>
+    </head>
+    <body>
+    <header>
+    <h1>ðŸŽ‚ Calculadora de Edad</h1>
+    <p>UtiliWeb360</p>
+    </header>
+
+    <div class="card">
+    <input type="date" id="fecha"><br>
+    <button onclick="calcularEdad()">ðŸŽ‰ Calcular edad</button>
+
+    <div id="resultado"></div>
+    <div id="detalle"></div>
+
+    <div id="acciones">
+    <button onclick="compartirWhatsApp()">ðŸŸ¢ WhatsApp</button>
+    <button onclick="copiarResultado()">ðŸ“‹ Copiar</button>
+    </div>
+
+    <a href="index.html">â¬… Volver al inicio</a>
+    </div>
+
+    <script>
+    function calcularEdad(){
+     const valor=document.getElementById("fecha").value;
+     if(!valor){alert("Selecciona una fecha.");return;}
+     const nac=new Date(valor);
+     const hoy=new Date();
+     let a=hoy.getFullYear()-nac.getFullYear();
+     let m=hoy.getMonth()-nac.getMonth();
+     let d=hoy.getDate()-nac.getDate();
+     if(d<0){
+       m--;
+       const ultDia=new Date(hoy.getFullYear(),hoy.getMonth(),0).getDate();
+       d+=ultDia;
+     }
+     if(m<0){a--;m+=12;}
+     resultado.style.display="block";
+     detalle.style.display="block";
+     acciones.style.display="block";
+     resultado.innerHTML="ðŸ¥³ Â¡Tienes "+a+" aÃ±os!";
+     detalle.innerHTML="ðŸ“… "+m+" meses y "+d+" dÃ­as";
+    }
+
+    function compartirWhatsApp(){
+     const txt=resultado.innerText+"\n"+detalle.innerText+
+     "\n\nCalculado en UtiliWeb360\nhttps://utiliweb360.github.io";
+     window.open("https://wa.me/?text="+encodeURIComponent(txt),"_blank");
+    }
+
+    function copiarResultado(){
+     navigator.clipboard.writeText(resultado.innerText+" - "+detalle.innerText);
+     alert("Resultado copiado");
+    }
+    </script>
+    </body>
+    </html>
