@@ -6,22 +6,28 @@
 <title>Calculadora de Edad | UtiliWeb360</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
 background:#f4f7fb;
 }
 
 header{
 background:linear-gradient(90deg,#0066ff,#00b894);
+padding:35px;
 color:white;
-padding:30px;
 text-align:center;
 }
 
 header h1{
-margin:0;
-font-size:40px;
+font-size:42px;
+margin-bottom:10px;
 }
 
 header p{
@@ -29,87 +35,231 @@ font-size:20px;
 }
 
 .contenedor{
-max-width:600px;
+
+max-width:700px;
+
 margin:40px auto;
+
 background:white;
+
 padding:35px;
+
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
 text-align:center;
+
 }
 
 input{
+
 width:90%;
+
 padding:18px;
-font-size:22px;
-border-radius:10px;
+
+font-size:24px;
+
+border-radius:12px;
+
 border:2px solid #ddd;
+
+outline:none;
+
 }
 
 button{
+
 margin-top:20px;
-padding:15px 25px;
-font-size:20px;
+
+padding:16px 28px;
+
+font-size:22px;
+
 border:none;
-border-radius:10px;
-background:#0066ff;
-color:white;
+
+border-radius:12px;
+
 cursor:pointer;
+
 transition:.3s;
-margin-right:10px;
+
+background:#0066ff;
+
+color:white;
+
 }
 
 button:hover{
-transform:scale(1.05);
-background:#004ecc;
+
+transform:scale(1.05
+             <button onclick="compartirWhatsApp()">
+
+🟢 Compartir por WhatsApp
+
+</button>
+
+<button onclick="copiarResultado()">
+
+📋 Copiar resultado
+
+</button>
+
+<button onclick="location.reload()">
+
+🔄 Calcular otra vez
+
+</button>
+
+</div>
+
+<a class="volver" href="index.html">
+
+⬅ Volver al inicio
+
+</a>
+
+</div>
+
+<script>
+
+function calcularEdad(){
+
+let fecha=document.getElementById("fecha").value;
+
+if(fecha==""){
+
+alert("Selecciona tu fecha de nacimiento.");
+
+return;
+
 }
 
-#resultado{
-margin-top:30px;
-font-size:32px;
-font-weight:bold;
-color:#0066ff;
-display:none;
-animation:zoom .5s;
+let nacimiento=new Date(fecha);
+
+let hoy=new Date();
+
+let años=hoy.getFullYear()-nacimiento.getFullYear();
+
+let meses=hoy.getMonth()-nacimiento.getMonth();
+
+let dias=hoy.getDate()-nacimiento.getDate();
+
+if(dias<0){
+
+meses--;
+
 }
 
-@keyframes zoom{
-0%{transform:scale(.5);opacity:0;}
-100%{transform:scale(1);opacity:1;}
+if(meses<0){
+
+años--;
+
+meses+=12;
+
 }
 
-.acciones{
-display:none;
-margin-top:25px;
+let resultado=document.getElementById("resultado");
+
+let datos=document.getElementById("datos");
+
+resultado.style.display="block";
+
+datos.style.display="block";
+
+document.getElementById("acciones").style.display="block";
+
+resultado.innerHTML="🥳 ¡Tienes "+años+" años!";
+
+datos.innerHTML=
+
+"📅 Meses: <b>"+meses+"</b><br>"+
+
+"📆 Días: <b>"+Math.abs(dias)+"</b>";
+
+}
+  <button onclick="compartirWhatsApp()">
+
+🟢 Compartir por WhatsApp
+
+</button>
+
+<button onclick="copiarResultado()">
+
+📋 Copiar resultado
+
+</button>
+
+<button onclick="location.reload()">
+
+🔄 Calcular otra vez
+
+</button>
+
+</div>
+
+<a class="volver" href="index.html">
+
+⬅ Volver al inicio
+
+</a>
+
+</div>
+
+<script>
+
+function calcularEdad(){
+
+let fecha=document.getElementById("fecha").value;
+
+if(fecha==""){
+
+alert("Selecciona tu fecha de nacimiento.");
+
+return;
+
 }
 
-.volver{
-display:inline-block;
-margin-top:30px;
-text-decoration:none;
-font-size:20px;
-color:#0066ff;
-font-weight:bold;
+let nacimiento=new Date(fecha);
+
+let hoy=new Date();
+
+let años=hoy.getFullYear()-nacimiento.getFullYear();
+
+let meses=hoy.getMonth()-nacimiento.getMonth();
+
+let dias=hoy.getDate()-nacimiento.getDate();
+
+if(dias<0){
+
+meses--;
+
 }
-</style>
 
-</head>
+if(meses<0){
 
-<body>
+años--;
 
-<header>
-<h1>🎂 Calculadora de Edad</h1>
-<p>Descubre tu edad en segundos.</p>
-</header>
+meses+=12;
 
-<div class="contenedor">
+}
 
-<input type="date" id="fecha">
+let resultado=document.getElementById("resultado");
 
-<br>
+let datos=document.getElementById("datos");
 
-<button onclick="calcularEdad()">🎉 Calcular edad</button>
+resultado.style.display="block";
 
-<div id="resultado"></div>
+datos.style.display="block";
 
-<div class="acciones" id="acciones">
+document.getElementById("acciones").style.display="block";
+
+resultado.innerHTML="🥳 ¡Tienes "+años+" años!";
+
+datos.innerHTML=
+
+"📅 Meses: <b>"+meses+"</b><br>"+
+
+"📆 Días: <b>"+Math.abs(dias)+"</b>";
+
+}
