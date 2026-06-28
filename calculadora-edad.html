@@ -1,42 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Calculadora de Edad | UtiliWeb360</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+}
+
+header{
+background:linear-gradient(90deg,#0066ff,#00b894);
+padding:35px;
+color:white;
+text-align:center;
+}
+
+header h1{
+font-size:42px;
+margin:0;
+}
+
+header p{
+font-size:22px;
+}
+
+.contenedor{
+max-width:600px;
+margin:50px auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+text-align:center;
+}
+
+input{
+width:90%;
+padding:18px;
+font-size:24px;
+border-radius:12px;
+border:2px solid #ddd;
+}
+
+button{
+margin-top:25px;
+padding:18px 35px;
+font-size:24px;
+border:none;
+border-radius:12px;
+background:#0066ff;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#004fd8;
+}
+
+#resultado{
+margin-top:35px;
+font-size:38px;
+font-weight:bold;
+color:#0066ff;
+opacity:0;
+transform:scale(.5);
+transition:.6s;
+}
+
+.mostrar{
+opacity:1 !important;
+transform:scale(1) !important;
+animation:rebote .7s;
+}
+
+@keyframes rebote{
+
+0%{
+transform:scale(.3);
+}
+
+50%{
+transform:scale(1.15);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+a{
+display:inline-block;
+margin-top:30px;
+font-size:22px;
+text-decoration:none;
+color:#0066ff;
+font-weight:bold;
+}
+
+</style>
+
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px;background:#f5f7fa;">
+<body>
+
+<header>
 
 <h1>🎂 Calculadora de Edad</h1>
 
-<p>Selecciona tu fecha de nacimiento:</p>
+<p>Descubre tu edad al instante.</p>
+
+</header>
+
+<div class="contenedor">
 
 <input type="date" id="fecha">
 
-<br><br>
+<br>
 
-<button onclick="calcular()">Calcular edad</button>
+<button onclick="calcularEdad()">
 
-<h2 id="resultado"></h2>
+🎉 Calcular edad
+
+</button>
+
+<div id="resultado"></div>
+
+<a href="index.html">⬅ Volver al inicio</a>
+
+</div>
 
 <script>
-function calcular(){
-let fecha=new Date(document.getElementById("fecha").value);
+
+function calcularEdad(){
+
+let nacimiento=new Date(document.getElementById("fecha").value);
+
 let hoy=new Date();
 
-let edad=hoy.getFullYear()-fecha.getFullYear();
+let edad=hoy.getFullYear()-nacimiento.getFullYear();
 
-let m=hoy.getMonth()-fecha.getMonth();
+let mes=hoy.getMonth()-nacimiento.getMonth();
 
-if(m<0||(m===0&&hoy.getDate()<fecha.getDate())){
+if(mes<0 || (mes==0 && hoy.getDate()<nacimiento.getDate())){
+
 edad--;
+
 }
 
-document.getElementById("resultado").innerHTML=
-"Tienes "+edad+" años.";
+let resultado=document.getElementById("resultado");
+
+resultado.classList.remove("mostrar");
+
+setTimeout(()=>{
+
+resultado.innerHTML="🥳 ¡Tienes "+edad+" años!";
+
+resultado.classList.add("mostrar");
+
+},150);
+
 }
+
 </script>
 
 </body>
+
 </html>
