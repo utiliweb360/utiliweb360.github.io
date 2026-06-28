@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Edad | UtiliWeb360</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:40px;background:#f5f7fa;">
+
+<h1>🎂 Calculadora de Edad</h1>
+
+<p>Selecciona tu fecha de nacimiento:</p>
+
+<input type="date" id="fecha">
+
+<br><br>
+
+<button onclick="calcular()">Calcular edad</button>
+
+<h2 id="resultado"></h2>
+
+<script>
+function calcular(){
+let fecha=new Date(document.getElementById("fecha").value);
+let hoy=new Date();
+
+let edad=hoy.getFullYear()-fecha.getFullYear();
+
+let m=hoy.getMonth()-fecha.getMonth();
+
+if(m<0||(m===0&&hoy.getDate()<fecha.getDate())){
+edad--;
+}
+
+document.getElementById("resultado").innerHTML=
+"Tienes "+edad+" años.";
+}
+</script>
+
+</body>
+</html>
