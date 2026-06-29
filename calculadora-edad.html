@@ -96,7 +96,14 @@ Compartir por WhatsApp
 
 function calcularEdad(){
 
-let fecha=new Date(document.getElementById("fecha").value);
+let valorFecha = document.getElementById("fecha").value;
+
+if(valorFecha==""){
+    alert("Selecciona una fecha.");
+    return;
+}
+
+let fecha = new Date(valorFecha + "T00:00:00");
 
 let hoy=new Date();
 
@@ -131,12 +138,6 @@ let cumpleSinHora = new Date(proximoCumple.getFullYear(), proximoCumple.getMonth
 
 let diasRestantes = Math.round(
     (cumpleSinHora - hoySinHora) / (1000 * 60 * 60 * 24)
-);
-
-// Comparar solo la fecha, ignorando la hora
-
-let diasRestantes = Math.ceil(
-    (proximoCumple - hoy) / (1000 * 60 * 60 * 24)
 );
 
 let opciones = {
