@@ -20,12 +20,12 @@ header{
 }
 
 .contenedor{
-    max-width:500px;
+    max-width:600px;
     margin:50px auto;
     background:white;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
     text-align:center;
 }
 
@@ -40,13 +40,18 @@ input{
 
 button{
     margin-top:20px;
-    padding:12px 25px;
+    padding:15px 35px;
     border:none;
-    background:#0066ff;
-    color:white;
-    border-radius:8px;
-    font-size:18px;
+    border-radius:12px;
+    font-size:22px;
     cursor:pointer;
+    color:white;
+    background:linear-gradient(90deg,#0066ff,#00a2ff);
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
 }
 
 button:hover{
@@ -55,8 +60,21 @@ button:hover{
 
 #resultado{
     margin-top:25px;
-    font-size:22px;
+    font-size:42px;
     font-weight:bold;
+    color:#222;
+}
+    #diasVida{
+    font-size:24px;
+    color:#444;
+    margin-top:10px;
+}
+
+#proximoCumple{
+    font-size:22px;
+    color:#555;
+    margin-top:15px;
+    line-height:1.6;
 }
 </style>
 
