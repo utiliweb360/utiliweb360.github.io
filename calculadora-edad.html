@@ -124,7 +124,12 @@ let proximoCumple = new Date(
     fecha.getDate()
 );
 
-if (proximoCumple < hoy) {
+// Comparar solo la fecha, ignorando la hora
+if (
+    hoy.getMonth() > fecha.getMonth() ||
+    (hoy.getMonth() === fecha.getMonth() &&
+     hoy.getDate() > fecha.getDate())
+) {
     proximoCumple.setFullYear(hoy.getFullYear() + 1);
 }
 
