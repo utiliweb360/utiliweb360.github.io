@@ -94,24 +94,10 @@ id="monto"
 placeholder="Ingresa el monto">
 
 <button onclick="calcularIGV()">
-function compartirWhatsApp(){
+   Calcular
+</button> 
 
-let texto=document.getElementById("resultado").innerText;
-
-if(texto==""){
-alert("Primero calcula el IGV.");
-return;
-}
-
-let url="https://api.whatsapp.com/send?text="+encodeURIComponent(texto+"\n\nCalculado en UtiliWeb360");
-
-window.location.href=url;
-
-}
-Calcular
-
-</button>
-
+    
 <div id="resultado"></div>
 <br><br>
 
@@ -175,6 +161,21 @@ document.getElementById("resultado").innerHTML=html;
 function limpiar(){
     document.getElementById("monto").value = "";
     document.getElementById("resultado").innerHTML = "";
+}
+    function compartirWhatsApp(){
+
+let texto = document.getElementById("resultado").innerText;
+
+if(texto==""){
+    alert("Primero calcula el IGV.");
+    return;
+}
+
+let url = "https://api.whatsapp.com/send?text=" +
+encodeURIComponent(texto + "\n\nCalculado en UtiliWeb360");
+
+window.location.href = url;
+
 }
 </script>
 
