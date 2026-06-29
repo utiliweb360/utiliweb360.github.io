@@ -171,8 +171,12 @@ if(texto==""){
 }
 
 let url = "https://api.whatsapp.com/send?text=" +
-encodeURIComponent(texto + "\n\nCalculado en UtiliWeb360");
-
+encodeURIComponent(
+texto +
+"\n\n🧮 Resultado calculado en UtiliWeb360." +
+"\n\n🚀 ¡Pruébalo tú también! Calcula el IGV en segundos, gratis y desde cualquier dispositivo." +
+"\n\nhttps://utiliweb360.github.io/calculadora-igv.html"
+);
 window.location.href = url;
 
 }
