@@ -134,13 +134,6 @@ let diasRestantes = Math.round(
 );
 
 // Comparar solo la fecha, ignorando la hora
-if (
-    hoy.getMonth() > fecha.getMonth() ||
-    (hoy.getMonth() === fecha.getMonth() &&
-     hoy.getDate() > fecha.getDate())
-) {
-    proximoCumple.setFullYear(hoy.getFullYear() + 1);
-}
 
 let diasRestantes = Math.ceil(
     (proximoCumple - hoy) / (1000 * 60 * 60 * 24)
