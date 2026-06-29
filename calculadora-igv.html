@@ -22,7 +22,25 @@ body{
     min-height:100vh;
 }
 
-@keyframes fondo{
+@keyframes aparecer{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
 
 0%{
 background-position:0% 50%;
@@ -101,27 +119,57 @@ box-sizing:border-box;
 }
 
 button{
-margin-top:15px;
-padding:14px 24px;
+padding:16px 28px;
+margin:10px;
+border:none;
+border-radius:16px;
 font-size:18px;
 font-weight:600;
-border:none;
-border-radius:12px;
+font-family:'Poppins',sans-serif;
 cursor:pointer;
-background:#2563eb;
 color:white;
+
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+box-shadow:
+0 10px 25px rgba(37,99,235,.35);
+
 transition:.25s;
 }
-
 button:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 20px rgba(37,99,235,.35);
-}
 
+transform:translateY(-4px) scale(1.03);
+
+box-shadow:
+0 18px 35px rgba(37,99,235,.45);
+
+}
+button:active{
+
+transform:scale(.96);
+
+}
 #resultado{
-margin-top:25px;
-font-size:22px;
-line-height:1.8;
+
+margin-top:30px;
+
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.22);
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.12);
+
+font-size:24px;
+
+line-height:2;
+
+animation:aparecer .45s ease;
+
 }
 
 </style>
