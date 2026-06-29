@@ -118,10 +118,19 @@ let diasVividos = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 document.getElementById("diasVida").innerHTML =
 "Has vivido <b>" + diasVividos.toLocaleString() + "</b> días."; 
     // Próximo cumpleaños
-let proximoCumple = new Date(
-    hoy.getFullYear(),
-    fecha.getMonth(),
-    fecha.getDate()
+// Próximo cumpleaños
+let proximoCumple = new Date(hoy.getFullYear(), fecha.getMonth(), fecha.getDate());
+
+if (proximoCumple < new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate())) {
+    proximoCumple.setFullYear(proximoCumple.getFullYear() + 1);
+}
+
+// Quitar la hora para evitar desfases
+let hoySinHora = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+let cumpleSinHora = new Date(proximoCumple.getFullYear(), proximoCumple.getMonth(), proximoCumple.getDate());
+
+let diasRestantes = Math.round(
+    (cumpleSinHora - hoySinHora) / (1000 * 60 * 60 * 24)
 );
 
 // Comparar solo la fecha, ignorando la hora
