@@ -117,14 +117,14 @@ function compartirWhatsApp(){
 let resultado = document.getElementById("resultado").innerText;
 
 if(resultado==""){
-alert("Primero calcula tu edad.");
-return;
+    alert("Primero calcula tu edad.");
+    return;
 }
 
 let mensaje =
-"Hola, acabo de calcular mi edad.\n\n"+
-resultado+
-"\n\nCalculado en UtiliWeb360\n"+
+"Hola, acabo de calcular mi edad.\n\n" +
+resultado +
+"\n\nCalculado en UtiliWeb360\n" +
 "https://utiliweb360.github.io";
 
 let url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
