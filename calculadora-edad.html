@@ -122,15 +122,14 @@ return;
 }
 
 let mensaje =
-"Hola, acabo de calcular mi edad.\n\n" +
-resultado +
-"\n\nCalculado en UtiliWeb360\n" +
+"Hola, acabo de calcular mi edad.\n\n"+
+resultado+
+"\n\nCalculado en UtiliWeb360\n"+
 "https://utiliweb360.github.io";
 
-window.open(
-"https://wa.me/?text=" + encodeURIComponent(mensaje),
-"_blank"
-);
+let url = "https://wa.me/?text=" + encodeURIComponent(mensaje);
+
+window.location.href = url;
 
 }
 </body>
